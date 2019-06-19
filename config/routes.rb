@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+  root "tweeets#index"
   
   resources :likes
   resources :relationships

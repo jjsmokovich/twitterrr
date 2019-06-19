@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :signed_in_user, only: [:edit, :update, :destroy, :following, :followers]
     
     def show 
-        @user.find(params[:id])
+       @user = User.find(params[:id])
     end
 
     def new
@@ -21,15 +21,6 @@ class UsersController < ApplicationController
     end
 
     def edit
-    end
-  
-    def update
-      if @user.update_attributes(user_params)
-        flash[:success] = "Profile updated"
-        redirect_to @user
-      else
-        render 'edit'
-      end
     end
 
 
